@@ -1,0 +1,170 @@
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #380b42ac;
+    border-radius: 100% 0% 100%  / 0% 86% 14% 100% ;
+    
+    color: #fff;
+  }
+  
+  .features-container .svg{
+    width: 200px;
+    position: relative;
+  }
+  .features-container .svglabel{
+   
+        position: absolute;
+        left: 50%;
+        font-size: 15px;
+        width: 100%;
+        font-weight: 700;
+        text-align:center;
+        transform: translateX(-50%);
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%); 
+
+  }
+  .features-left {
+    padding: 20px;
+  }
+  
+  .features-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .features-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  /* List of features */
+  .features-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .features-list-item {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px rgba(255, 255, 255, 0.400);
+  }
+  
+  .features-right {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    padding-left: 10%;
+
+  }
+  
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    }
+  
+  
+  
+  .registration-form input {
+    padding: 8px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: #000;
+    border-radius: 12px;
+
+
+  }
+  
+  .registration-form button {
+    padding: 12px 10px;
+    border-radius: 15px;
+    width: 105px;
+    border: none;
+    background-color: #000928;
+    cursor: pointer;
+    color: #ddd;
+  }
+  .registration-form input::placeholder{
+    color: #000;
+  }
+ .university{
+    display: flex;
+    align-items: center;
+    box-shadow: 10px 2px 10px rgb(0, 0, 0);
+    height: 200px;
+    justify-content: space-around;
+    border-bottom: 1px solid #000;
+ }
+ .university img{
+    max-width: 80px;
+ }
+ .login-container{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+ }
+ .login-container .features-container {
+  border-radius: 0;
+  min-height: 100vh;
+  background-color: #004a16;
+ }
+.login-left{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1%;
+  width: 30%;
+}
+.login-left div{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  
+
+}
+.login-left div input{
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #000;
+  margin: 3px;
+  padding: 4px;
+
+}
+.login-left button{
+  width: 70%;
+  border: none;
+  padding: 7px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.login-left .gray{
+  background-color: rgba(0, 0, 0, 0.723);
+
+  color: #fff;
+}
+.login-left .green{
+  background-color: #219845;
+  color: #fff;
+}
+.login-left .dontyouhaveaccount{
+color: #00855b;
+padding-left: 5px;
+cursor: pointer;
+}
+.login-left .welcome{
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}

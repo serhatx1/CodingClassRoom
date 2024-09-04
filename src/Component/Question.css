@@ -1,0 +1,134 @@
+
+.QuestionLoaderContainer {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.DescriptionContainer {
+    flex: 1;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    max-height: 500px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.DescriptionContainer h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #000000;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+
+}
+
+.DescriptionContainer p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+.questionDesc{
+    display: flex;
+    flex-direction: column;
+}
+
+.TestButtons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.TestButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #007bff;
+    color: black;
+    background: #f9f9f9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1;
+}
+
+.TestButton.active {
+    background-color: #7c7c7cb3;
+    color: #000000;
+    border: 1px solid #7c7c7cb3;
+}
+
+
+
+.TestCaseDetails {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.EditorContainer {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.EditorContainer .ButtonContainer {
+    margin-top: 10px;
+}
+
+.ButtonContainer button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    background-color: #9b9b9b;
+    cursor: pointer;
+    font-weight: 500;
+
+    transition: background-color 0.3s ease;
+}
+.ButtonContainer button:nth-last-child(1){
+    background-color: rgba(1, 84, 1, 0.892);
+    color: #fff;
+}
+
+.TestResultsContainer {
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.TestResultsContainer h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.TestResultsContainer pre {
+    white-space: pre-wrap;
+    background-color: #f8f9fc;
+    padding: 10px;
+    border-radius: 4px;
+    color: #333;
+}

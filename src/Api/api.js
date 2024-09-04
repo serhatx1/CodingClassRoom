@@ -17,3 +17,10 @@ export const submitResults = async (questionType, results, jwtToken) => {
     console.error('Error submitting results:', e);
   }
 };
+export const register = (userData) => {
+  return axios.post(`${API_URL}/register`, userData);
+};
+
+export const login = (userData) => {
+  return axios.post(`${API_URL}/login`, userData);
+};

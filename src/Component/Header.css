@@ -1,0 +1,116 @@
+.HeaderContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color:#fff;
+    background-color: #14171F;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.HeaderBanner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.HeaderBanner img {
+    width: 140px;
+    height: 90%;
+
+}
+
+.HeaderBanner div:hover {
+    font-weight: 400;
+}
+.HeaderMiddleContainer{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.HeaderMiddle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    font-size: 13px;
+    padding-left:5%;
+    height: 100%;
+}
+
+.HeaderMiddle.active {
+    color: #ffffff; 
+}
+
+.HeaderMiddle.active::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: rgb(131, 131, 255);
+    position: absolute;
+    left: 25%;
+    bottom: 0.2%; /* Position the underline below the text */
+    width: 100%;
+}
+.HeaderRightest{
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+
+}
+
+.HeaderSearchButton {
+    display: flex;
+    align-items: center;
+    outline: 1px solid #fff;
+    margin: 5px;
+    border-radius: 4px;
+    padding: 8px;
+    height: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    position: relative; 
+}
+
+.HeaderSearchButton:hover {
+    border-color: #001b39; 
+    width:100%;
+    padding-left: 15px;
+
+}
+
+.HeaderSearchIcon {
+    margin-right: 8px;
+    width: 24px;
+    height: 20px;
+}
+
+.HeaderSearchButton input {
+    border: none;
+    outline: none;
+    background:transparent;
+    border-radius: 4px;
+    color:#fff;
+    padding: 3px;
+    width: 200px;
+    transition: width 0.3s ease;
+    font-size: 15px;
+}
+
+.HeaderSearchButton input:focus {
+    width: 350px; 
+}
+input::placeholder{
+    color: #fff;
+}
+
+.ShortcutText {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #ffffff;
+}
