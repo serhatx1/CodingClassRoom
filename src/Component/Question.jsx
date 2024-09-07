@@ -5,6 +5,7 @@ import questions from '../testCasesData.json';
 import { submitResults } from '../Api/api';
 import useCodeRunner from '../Hook/runner';
 import './Question.css'; 
+import AuthCheckComponent from './AuthCheck';
 
 const QuestionLoader = () => {
   const { questionType } = useParams();
@@ -53,6 +54,7 @@ const QuestionLoader = () => {
   
   return (
     <div className='QuestionLoaderContainer'>
+      <AuthCheckComponent/>
       <div className='DescriptionContainer'>
         <h2> {questionType}</h2>
         <div className='questionDesc'>

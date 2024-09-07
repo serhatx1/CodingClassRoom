@@ -13,7 +13,6 @@ export const Search = () => {
 
   const performSearch = () => {
     if (query.trim()) {
-      // Burada arama işlemini gerçekleştirin
       console.log('Arama sorgusu:', query);
       // fetch(`api/search?query=${query}`)
       //   .then(response => response.json())

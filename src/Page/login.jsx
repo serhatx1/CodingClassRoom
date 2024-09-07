@@ -1,8 +1,9 @@
-// Login.js
 import React, { useState } from 'react';
 import { login } from '../Api/api';
-import './register.css'; // Import the CSS file
+import './register.css';
 import laurel from "../img/laurel.svg"
+import { VscError } from "react-icons/vsc";
+
 import a from "../img/1.webp"
 import b from "../img/2.png"
 import c from "../img/3.jpg"
@@ -25,9 +26,16 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await login({ email, password });
+      await login({ email, password }).then((response)=>{
+        if (response.status!==200){
+          console.log(response)
+          setError(response.error)
+        }
+      }).catch((error)=>{
+        console.log(error)
+      })
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      setError(err);
     }
   };
   const navigate = useNavigate();
@@ -43,8 +51,15 @@ const Login = () => {
           </label>
         </div>
         <form onSubmit={handleLogin}>
+        <div className={`${error==null?"deactive":"error"} `}>
+            <VscError className='VscError' fontSize="2em"/>
+            <div className='ErrorMessage'>
+            {error}
+            </div>
+            </div>
           <div>
-            <label>Email</label>
+            
+            <label className='labelemail'>Email</label>
             <input
               type="email"
               value={email}

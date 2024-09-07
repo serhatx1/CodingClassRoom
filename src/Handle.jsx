@@ -5,7 +5,7 @@ import QuestionLoader from './Component/Question';
 import Login from './Page/login';
 import Register from './Page/Register';
 import RequireAuth from './Middleware/Route';
-import Layout from './Hook/layout'; // Import the Layout component
+import Layout from './Hook/layout'; 
 import Footer from './Component/Footer';
 
 const Handle = () => (

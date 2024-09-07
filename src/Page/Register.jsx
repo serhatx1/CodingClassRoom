@@ -1,7 +1,6 @@
-// Features.js
 import React, { useState } from 'react';
 import { register } from '../Api/api';
-import './register.css'; // Import the CSS file
+import './register.css'; 
 import laurel from "../img/laurel.svg"
 import a from "../img/1.webp"
 import b from "../img/2.png"

@@ -51,7 +51,7 @@
     background: rgb(131, 131, 255);
     position: absolute;
     left: 25%;
-    bottom: 0.2%; /* Position the underline below the text */
+    bottom: 0.2%; 
     width: 100%;
 }
 .HeaderRightest{
