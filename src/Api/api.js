@@ -17,8 +17,22 @@ export const submitResults = async (questionType, results, jwtToken) => {
     console.error('Error submitting results:', e);
   }
 };
-export const register = (userData) => {
-  return axios.post(`${API_URL}/register`, userData);
+export const register = async (userData) => {
+   try {
+    console.log("Sending login request...");
+    
+    const response = await axios.post(`${API_URL}/register`, userData);
+    console.log("Response received:", response);
+
+    if (response.status === 201 ) {
+      return { success: true};
+    } else {
+      return { success: false, error: 'Something went wrong' };
+    }
+  } catch (error) {
+    console.error('Error during register:', error.response ? error.response.data : error.message);
+    return { success: false, error: error.response ? error.response.data.error : error.message };
+  }
 };
 
 
@@ -30,7 +44,11 @@ export const login = async (userData) => {
     
     const response = await axios.post(`${API_URL}/login`, userData);
     console.log("Response received:", response);
-
+    console.log(response.status,response.data.token)
+    if (response.status==202 && response.data.token){
+      localStorage.setItem('Token', `Bearer ${response.data.token}`);
+      return {success:"selectrole"}
+    }
     if (response.status === 200 && response.data.token) {
       localStorage.setItem('Token', `Bearer ${response.data.token}`);
       console.log('Login successful');
@@ -44,7 +62,42 @@ export const login = async (userData) => {
     return { success: false, error: error.response ? error.response.data.error : error.message };
   }
 };
+export const Role = async (userData) => {
+  try {
+    console.log("Sending role request...", userData.role);
 
+    const jwtToken = localStorage.getItem("Token");
+    console.log("JWT Token:", jwtToken);
+
+    const response = await axios.post(
+      `${API_URL}/selectrole`,
+      { role: userData.role }, 
+      {
+        headers: {
+          Authorization: `${jwtToken}`,
+        },
+      }
+    );
+
+    console.log("Response received:", response);
+
+    if (response.status === 200) {
+      return { success: true };
+    } else {
+      return { success: false, error: 'Something went wrong' };
+    }
+  } catch (error) {
+    console.error(
+      'Error during role selection:',
+      error.response ? error.response.data : error.message
+    );
+
+    return {
+      success: false,
+      error: error.response ? error.response.data.error : error.message,
+    };
+  }
+};
 // export const CheckAuth=async()=>{
 //   try {
 //     const response=await axios.get(`${API_URL}/checkauth`)

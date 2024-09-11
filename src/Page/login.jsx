@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { login } from '../Api/api';
 import './register.css';
 import laurel from "../img/laurel.svg"
@@ -10,6 +10,8 @@ import c from "../img/3.jpg"
 import d from "../img/4.png"
 import e from "../img/5.png"
 import { Navigate, redirect, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Context/Context';
+
 const features = [
   "Create and Manage Classes Easily",
   "Built-In Online Compiler",
@@ -19,15 +21,31 @@ const features = [
 ];
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const { isAuthenticated } = useContext(AuthContext);
 
+  if(isAuthenticated===true){
+    navigate("/")
+  }
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await login({ email, password }).then((response)=>{
-        if (response.status!==200){
+        console.log("hi")
+        if (response.success=="selectrole"){
+          window.location.href="/auth/role"
+        }
+        if (response.success==true){
+          window.location.href="/"
+
+        }
+        if (response.success!==true){
+
           console.log(response)
           setError(response.error)
         }
@@ -38,7 +56,6 @@ const Login = () => {
       setError(err);
     }
   };
-  const navigate = useNavigate();
 
   return (
     <div className="login-container">
@@ -76,7 +93,6 @@ const Login = () => {
               required
             />
           </div>
-          {error && <p>{error}</p>}
           <button
             className={`${password == "" || email == "" ? "gray" : "green"}`}
             type="submit"

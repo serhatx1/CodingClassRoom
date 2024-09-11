@@ -7,13 +7,18 @@ import Register from './Page/Register';
 import RequireAuth from './Middleware/Route';
 import Layout from './Hook/layout'; 
 import Footer from './Component/Footer';
+import { SelectRole } from './Page/SelectRole';
 
 const Handle = () => (
+ 
     <Router>
         <Routes>
+            
             <Route path="/" element=
             {<Layout><Register /></Layout>} />
             <Route path="/login" element={<Layout><Login /></Layout>} />
+            <Route path="/auth/role" element={<Layout><SelectRole /></Layout>} />
+
             <Route
                 path="/:questionType"
                 element={

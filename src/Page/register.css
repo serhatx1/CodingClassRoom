@@ -177,8 +177,21 @@ cursor: pointer;
   padding: 8px;
   align-items: center;
   border-radius: 20px;
+  
 }
-.login-left .VscError{
+
+.HeaderMiddle2 .HeaderMiddle{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+
+}
+.LogOut button{
+  background-color: transparent;
+
+
+}
+.login-left,.registration-form .VscError{
   color: #000000ca;
 }
 .login-left .ErrorMessage{
@@ -192,3 +205,85 @@ cursor: pointer;
 .deactive{
   display: none!important;
  }
+ .registration-form .error{
+  background-color: rgb(181, 48, 48);
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  align-items: center;
+  border-radius: 20px;
+  min-width: max-content;
+  
+}
+.registration-form .ErrorMessage{
+  font-size: 16px;
+  color: #000000d8;
+}
+.registration-form .success{
+  background-color: rgb(2, 92, 0);
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  align-items: center;
+  border-radius: 20px;
+  min-width: max-content;
+  margin: 10px 0;
+  
+}
+
+.success {
+  animation: fadeInOut 4s forwards;
+}
+.Role-Section{
+  display: flex;
+  overflow: hidden;
+  justify-content: space-around;
+  min-height: 100vh;
+  align-items: center;
+}
+.Role-Section button{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  overflow: hidden;
+  align-items: center;
+  height: max-content;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 17px;
+  border:none;
+  background-color: #bebebe80;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.553);
+
+
+}
+.Role-Section img{
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+}
+
+
+
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Initial state when not active */
+.deactive {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
