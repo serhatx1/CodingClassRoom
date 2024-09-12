@@ -13,9 +13,11 @@ export const SelectRole = () => {
     if(isAuthenticated===false || role!==""){
         navigate("/")
     }
+  
     const handleRole = async (e) => {
         e.preventDefault();
         try {
+          console.log(roles)
           await Role({roles}).then((response)=>{
             if(response.success==true){
                 

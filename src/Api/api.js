@@ -64,14 +64,14 @@ export const login = async (userData) => {
 };
 export const Role = async (userData) => {
   try {
-    console.log("Sending role request...", userData.role);
+    console.log("Sending role request...", userData.roles);
 
     const jwtToken = localStorage.getItem("Token");
     console.log("JWT Token:", jwtToken);
 
     const response = await axios.post(
       `${API_URL}/selectrole`,
-      { role: userData.role }, 
+      { role: userData.roles }, 
       {
         headers: {
           Authorization: `${jwtToken}`,
@@ -96,6 +96,21 @@ export const Role = async (userData) => {
       success: false,
       error: error.response ? error.response.data.error : error.message,
     };
+  }
+};
+
+export const createClass = async (classData) => {
+  try {
+    const token = localStorage.getItem("Token");
+    console.log(token)
+      const response = await axios.post(`${API_URL}/class/create`, {classData}, {
+          headers: {
+              Authorization: `${token}`
+          }
+      });
+      return response.data;
+  } catch (error) {
+      throw new Error(error.response?.data?.error || 'An error occurred while creating the class');
   }
 };
 // export const CheckAuth=async()=>{

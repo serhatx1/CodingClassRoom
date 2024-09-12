@@ -8,7 +8,7 @@ import { AuthContext } from '../Context/Context';
 const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, setIsAuthenticated,role } = useContext(AuthContext);
 
     const getActivePage = () => {
         switch (location.pathname) {
@@ -78,9 +78,14 @@ const Header = () => {
                     {isAuthenticated && (
                     <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
                 )}
+               
                     </div>
-                    
-                    
+                    <div className='HeaderMiddle HeaderMiddle2 Logout'>
+                    {(isAuthenticated && role=="teacher") && (
+                    <button className='HeaderMiddle' onClick={()=>navigate("/class/create")}>Create Class</button>
+                )}
+                    </div>
+                  
                 </div>
             </div>
             <div className='HeaderRightest'>

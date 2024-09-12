@@ -8,6 +8,7 @@ import RequireAuth from './Middleware/Route';
 import Layout from './Hook/layout'; 
 import Footer from './Component/Footer';
 import { SelectRole } from './Page/SelectRole';
+import CreateClass from './Page/CreateClass';
 
 const Handle = () => (
  
@@ -18,6 +19,8 @@ const Handle = () => (
             {<Layout><Register /></Layout>} />
             <Route path="/login" element={<Layout><Login /></Layout>} />
             <Route path="/auth/role" element={<Layout><SelectRole /></Layout>} />
+            <Route path="/class/create" element={<Layout><CreateClass /></Layout>} />
+
 
             <Route
                 path="/:questionType"

@@ -94,7 +94,7 @@ const Login = () => {
             />
           </div>
           <button
-            className={`${password == "" || email == "" ? "gray" : "green"}`}
+            className={`${password.length<5 || email == "" ? "gray" : "green"}`}
             type="submit"
           >
             Login
