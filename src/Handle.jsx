@@ -9,6 +9,7 @@ import Layout from './Hook/layout';
 import Footer from './Component/Footer';
 import { SelectRole } from './Page/SelectRole';
 import CreateClass from './Page/CreateClass';
+import { OwnClasses } from './Page/OwnClasses';
 
 const Handle = () => (
  
@@ -20,6 +21,8 @@ const Handle = () => (
             <Route path="/login" element={<Layout><Login /></Layout>} />
             <Route path="/auth/role" element={<Layout><SelectRole /></Layout>} />
             <Route path="/class/create" element={<Layout><CreateClass /></Layout>} />
+            <Route path="/class/get" element={<Layout><OwnClasses /></Layout>} />
+
 
 
             <Route

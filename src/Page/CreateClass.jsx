@@ -6,6 +6,7 @@ const CreateClass = () => {
     const [className, setClassName] = useState('');
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [ClassToken,setClassToken]=useState(null)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -19,8 +20,10 @@ const CreateClass = () => {
         try {
             const classData = { name: className };
             const result = await createClass(classData, token);
+            console.log(result)
             setSuccess('Class created successfully!');
             setClassName('');
+            setClassToken(result.Token)
         } catch (err) {
             setError(err.message);
         }

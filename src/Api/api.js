@@ -102,8 +102,8 @@ export const Role = async (userData) => {
 export const createClass = async (classData) => {
   try {
     const token = localStorage.getItem("Token");
-    console.log(token)
-      const response = await axios.post(`${API_URL}/class/create`, {classData}, {
+    console.log(classData)
+      const response = await axios.post(`${API_URL}/class/create`, {Name:classData.name}, {
           headers: {
               Authorization: `${token}`
           }
@@ -111,6 +111,20 @@ export const createClass = async (classData) => {
       return response.data;
   } catch (error) {
       throw new Error(error.response?.data?.error || 'An error occurred while creating the class');
+  }
+};
+export const GetClasses = async () => {
+  try {
+    const token = localStorage.getItem("Token");
+      const response = await axios.get(`${API_URL}/class/get`,{
+          headers: {
+              Authorization: `${token}`
+          }
+      });
+      console.log("response",response)
+      return response.data;
+  } catch (error) {
+      throw new Error(error.response?.data?.error || 'An error occurred while getting the class');
   }
 };
 // export const CheckAuth=async()=>{
