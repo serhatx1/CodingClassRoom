@@ -127,6 +127,26 @@ export const GetClasses = async () => {
       throw new Error(error.response?.data?.error || 'An error occurred while getting the class');
   }
 };
+export const fetchParticularClass = async (classID) => {
+  try {
+    const response = await axios.get(`${API_URL}/class/${classID}`, {
+      headers: {
+        Authorization: `${localStorage.getItem('Token')}`, 
+      },
+    });
+
+    if (response.status!=200) {
+      throw new Error('Failed to fetch class data');
+    }
+
+    const data = await response
+    return data.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || 'An error occurred while getting the class');
+
+  }
+};
+
 // export const CheckAuth=async()=>{
 //   try {
 //     const response=await axios.get(`${API_URL}/checkauth`)

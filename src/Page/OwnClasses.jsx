@@ -25,7 +25,7 @@ export const OwnClasses = () => {
             {classes ? (
                 <ul>
                     {classes.map((cls) => (
-                        <li key={cls.ID}>{cls.ID} {cls.Name}</li> 
+                        <li key={cls.ID}>{cls.ID} {cls.Name} <a href={`/class/${cls.ID}`}>Check</a></li> 
                     ))}
                 </ul>
             ) : (

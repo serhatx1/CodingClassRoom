@@ -10,6 +10,7 @@ import Footer from './Component/Footer';
 import { SelectRole } from './Page/SelectRole';
 import CreateClass from './Page/CreateClass';
 import { OwnClasses } from './Page/OwnClasses';
+import { ParticularClass } from './Page/ParticularClass';
 
 const Handle = () => (
  
@@ -22,6 +23,8 @@ const Handle = () => (
             <Route path="/auth/role" element={<Layout><SelectRole /></Layout>} />
             <Route path="/class/create" element={<Layout><CreateClass /></Layout>} />
             <Route path="/class/get" element={<Layout><OwnClasses /></Layout>} />
+            <Route path="/class/:classID" element={<Layout><ParticularClass /></Layout>} />
+
 
 
 
