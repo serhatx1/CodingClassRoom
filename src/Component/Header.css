@@ -1,3 +1,7 @@
+.flex{
+    display: flex;
+    margin: auto;
+}
 .HeaderContainer {
     width: 100%;
     display: flex;
@@ -58,7 +62,7 @@
 .HeaderRightest{
     display: flex;
     align-items: center;
-    margin-right: 15px;
+    margin: 0 15px;
 
 }
 

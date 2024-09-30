@@ -1,3 +1,6 @@
+
+
+
 .features-container {
     display: flex;
     justify-content: space-between;
@@ -288,7 +291,6 @@ cursor: pointer;
 
 
 .create-class-container {
- 
   width: 100%;
   margin: 0 auto;
   padding: 25px;
@@ -365,6 +367,7 @@ cursor: pointer;
 .class-particular-container { 
   display: flex;
   flex-direction: column;
+
   align-items: center;
   margin:2rem auto;
   padding: 2rem;

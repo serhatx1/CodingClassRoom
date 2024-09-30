@@ -32,9 +32,7 @@ const Handle = () => (
                 path="/:questionType"
                 element={
                     <Layout>
-                        {/* <RequireAuth> */}
                             <QuestionLoader />
-                        {/* </RequireAuth> */}
                     </Layout>
                 }
             />

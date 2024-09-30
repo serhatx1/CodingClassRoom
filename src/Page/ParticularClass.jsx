@@ -1,16 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { fetchParticularClass } from "../Api/api";
 import './register.css'; 
+import { AuthContext } from '../Context/Context';
 
 export const ParticularClass = () => {
     const { classID } = useParams();
     const [classData, setClassData] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [load, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [tokenCopied, setTokenCopied] = useState(false); 
-
+    const navigate=useNavigate()
+    const { isAuthenticated,role,loading } = useContext(AuthContext);
+   
+    
     useEffect(() => {
+        console.log(isAuthenticated)
+        if (loading) return; 
+        if (isAuthenticated !== true) {
+            navigate("/login");
+            return;
+        }
+        if (role !== "teacher") {
+            navigate("/");
+            return;
+        }
         const loadClassData = async () => {
             try {
                 const data = await fetchParticularClass(classID);
@@ -24,7 +38,7 @@ export const ParticularClass = () => {
         };
 
         loadClassData();
-    }, [classID]); 
+    }, [classID,isAuthenticated,loading,role]); 
 
     const copyToClipboard = (text) => {
         navigator.clipboard.writeText(text)
@@ -39,7 +53,7 @@ export const ParticularClass = () => {
             });
     };
 
-    if (loading) return <div className="loading">Loading...</div>;
+    if (load) return <div className="loading">Loading...</div>;
     if (error) return <div className="error">Error: {error}</div>;
 
     return (

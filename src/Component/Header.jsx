@@ -68,26 +68,28 @@ const Header = () => {
                             </div>
                         </>
                     )}
-                    <div
-                        className={`HeaderMiddle ${activePage === 'Billing' ? 'active' : ''}`}
-                        onClick={() => handleClick('Billing')}
-                    >
-                        Billing
-                    </div>
+                   
+                    
                     <div className='HeaderMiddle HeaderMiddle2 Logout'>
+                    {(isAuthenticated && role=="teacher") && (
+                    <div className='flex'>
+                    <button className='HeaderMiddle' onClick={()=>navigate("/class/create")}>Create Class</button>
+                    <button className='HeaderMiddle' onClick={()=>navigate("/class/get")}>My Classes</button>
+                    </div>
+                    
+                )}
+           
+                </div>
+                    
+                  
+                </div>
+            </div>
+            <div className='HeaderMiddle HeaderMiddle2 Logout flex'>
                     {isAuthenticated && (
                     <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
                 )}
                
                     </div>
-                    <div className='HeaderMiddle HeaderMiddle2 Logout'>
-                    {(isAuthenticated && role=="teacher") && (
-                    <button className='HeaderMiddle' onClick={()=>navigate("/class/create")}>Create Class</button>
-                )}
-                    </div>
-                  
-                </div>
-            </div>
             <div className='HeaderRightest'>
                 <Search />
                
