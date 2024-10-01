@@ -2,27 +2,26 @@ import React, { useContext, useEffect, useState } from 'react';
 import { GetClasses } from '../Api/api';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/Context';
+import "./register.css";
 
 export const OwnClasses = () => {
     const [classes, setClasses] = useState(null);
     const [err, setError] = useState(null);
-    const navigate=useNavigate()
-    const { isAuthenticated,role,loading } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { isAuthenticated, role, loading } = useContext(AuthContext);
 
     useEffect(() => {
-   
         const fetchClasses = async () => {
-            
-        if (loading) return; 
+            if (loading) return; 
 
-        if (isAuthenticated !== true) {
-            navigate("/login");
-            return;
-        }
-        if (role !== "teacher") {
-            navigate("/");
-            return;
-        }
+            if (!isAuthenticated) {
+                navigate("/login");
+                return;
+            }
+            if (role !== "teacher") {
+                navigate("/");
+                return;
+            }
             try {
                 const result = await GetClasses();
                 setClasses(result); 
@@ -32,20 +31,39 @@ export const OwnClasses = () => {
         };
 
         fetchClasses();
-    }, [isAuthenticated,role,navigate]);
+    }, [isAuthenticated, role, loading, navigate]);
+
+    const countOfStudents = (arr) => (Array.isArray(arr) ? arr.length : 0);
 
     return (
-        <div>
-            {console.log(classes)}
-            {err && <p>{err}</p>}
+        <div className="allClasses-container">
+            {err && <p className="error-message">{err}</p>}
+            
             {classes ? (
-                <ul>
-                    {classes.map((cls) => (
-                        <li key={cls.ID}>{cls.ID} {cls.Name} <a href={`/class/${cls.ID}`}>Check</a></li> 
-                    ))}
-                </ul>
+                <table className="classes-table">
+                    <thead className='header-bar'>
+                        <tr>
+                            <th>ID</th>
+                            <th>Token</th>
+                            <th>Student Count</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {classes.map((cls) => (
+                            <tr key={cls.ID} className="class-item">
+                                <td>{cls.ID}</td>
+                                <td>{cls.Token}</td>
+                                <td>{countOfStudents(cls.Students)}</td>
+                                <td>{cls.Name}</td>
+                                <td><a href={`/class/${cls.ID}`} className="check-link">Check</a></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             ) : (
-                !err && <p>Loading...</p> 
+                !err && <p className="loading-message">Loading...</p> 
             )}
         </div>
     );
