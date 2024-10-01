@@ -9,7 +9,7 @@ export const OwnClasses = () => {
     const [err, setError] = useState(null);
     const navigate = useNavigate();
     const { isAuthenticated, role, loading } = useContext(AuthContext);
-
+    
     useEffect(() => {
         const fetchClasses = async () => {
             if (loading) return; 
