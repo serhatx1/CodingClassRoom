@@ -11,6 +11,7 @@ import { SelectRole } from './Page/SelectRole';
 import CreateClass from './Page/CreateClass';
 import { OwnClasses } from './Page/OwnClasses';
 import { ParticularClass } from './Page/ParticularClass';
+import { JoinClass } from './Component/JoinClass';
 
 const Handle = () => (
  
@@ -24,6 +25,8 @@ const Handle = () => (
             <Route path="/class/create" element={<Layout><CreateClass /></Layout>} />
             <Route path="/class/get" element={<Layout><OwnClasses /></Layout>} />
             <Route path="/class/:classID" element={<Layout><ParticularClass /></Layout>} />
+            <Route path="/class/join" element={<Layout><JoinClass /></Layout>} />
+
 
 
 

@@ -139,11 +139,33 @@ export const fetchParticularClass = async (classID) => {
       throw new Error('Failed to fetch class data');
     }
 
-    const data = await response
+    const data = response
     return data.data;
   } catch (error) {
     throw new Error(error.response?.data?.error || 'An error occurred while getting the class');
 
+  }
+};
+export const JoinClassApi = async (classID) => {
+  try {
+    if (!classID) {
+      throw new Error('Class ID is required to join a class.');
+    }
+    let token=localStorage.getItem('Token')
+    const response = await axios.post(`${API_URL}/class/join`, {Token:classID}, {
+      headers: {
+        Authorization: `${token}`
+      }
+  });
+
+    if (response.status !== 200) {
+      throw new Error('Failed to join class');
+    }
+
+    return true
+  } catch (error) {
+    console.log(error)
+    throw new Error(error.response?.data?.error || 'An error occurred while joining the class');
   }
 };
 

@@ -86,7 +86,11 @@ const Header = () => {
             </div>
             <div className='HeaderMiddle HeaderMiddle2 Logout flex'>
                     {isAuthenticated && (
+                    <div className='flex'>
+                    <button className='HeaderMiddle' onClick={()=>navigate("/class/join")}>Join class</button>
                     <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
+
+                    </div>
                 )}
                
                     </div>

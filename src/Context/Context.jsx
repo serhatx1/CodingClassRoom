@@ -7,7 +7,9 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [role, setRole] = useState(null); 
+  const [role, setRole] = useState(null);
+  const [user, setUser] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -18,6 +20,7 @@ const AuthProvider = ({ children }) => {
         if (!token || token.length < 5) {
             setIsAuthenticated(false);
             setRole(null);
+            setUser(null)
             return; 
         }
 
@@ -28,21 +31,29 @@ const AuthProvider = ({ children }) => {
         if (r.status !== 200) {
             setIsAuthenticated(false);
             setRole(null);
+            setUser(null)
+
             return; 
         }
 
         const response = await axios.get(`${API_URL}/checkrole`, {
             headers: { Authorization: `${token}` }
         });
+        const userResponse = await axios.get(`${API_URL}/user/get`, {
+            headers: { Authorization: `${token}` }
+        });
 
-        console.log("Response:", response, response.status);
 
         if (response.status === 200) {
             setIsAuthenticated(true);
+            console.log(userResponse.data)
             setRole(response.data.role); 
+            setUser(userResponse.data)
         } else {
             setIsAuthenticated(false);
             setRole(null);
+            setUser(null)
+
         }
     } catch (err) {
         console.error('Error during authentication check:', err);
@@ -55,6 +66,8 @@ const AuthProvider = ({ children }) => {
         }
         setIsAuthenticated(false);
         setRole(null);
+        setUser(null)
+
     } finally {
         setLoading(false); 
     }
@@ -67,10 +80,10 @@ const AuthProvider = ({ children }) => {
   }, []);
   useEffect(() => {
     console.log("context updated:", isAuthenticated);
-  }, [isAuthenticated,role,loading]);
+  }, [isAuthenticated,role,loading,user]);
 
   return (
-  <AuthContext.Provider value={{ isAuthenticated, role, loading, error, setIsAuthenticated,loading }}>
+  <AuthContext.Provider value={{ isAuthenticated, role, loading,user, error, setIsAuthenticated,loading }}>
       {children}
     </AuthContext.Provider>
   );
