@@ -469,52 +469,94 @@ cursor: pointer;
 
 
 .joinclass-container {
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: #cdcccc6f;
   font-family: Arial, sans-serif; 
+
 }
 
-.joinclass-container > div {
-  background-color: #fff; 
-  border-radius: 8px; 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
-  padding: 20px;
-  max-width: 400px; 
-  width: 100%; 
+.joinclass-container .joinclass-section{
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #0000009e;
+  max-width: 400px;
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+
+
+}
+.joinclass-container span,.joinclass-info,ul,.bottom,input,button,h3{
+  margin: 6px;
+  padding: 6px;
+}
+.joinclass-container h3{
+  font-weight: 400;
+}
+.joinclass-container .joinclass-info{
+  max-width: 100%;
+  border: 1px solid #00000065;
+  border-radius: 10px;
+  flex-direction: column;
+  display: flex;
+}
+.joinclass-container .name{
+  text-transform: capitalize;
+  margin: 3px 0;
+  padding: 0;
+}
+.joinclass-container .email{
+  color:#000000e1;
+  font-size: 13px;
+  margin:10px 0;
+  padding: 0;
+}
+.joinclass-container .joinclass-info div{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.joinclass-container .joinclass-info .text{
+  margin:8px;
+  padding: 0;
+  color: #000000cd;
+}
+.joinclass-container .joinclass-info span{
+  margin-left: 10px;
 }
 
-.joinclass-container span {
-  font-weight: bold; 
-  margin-bottom: 8px; 
-}
+
+
 
 .joinclass-container input {
-  width: 100%; 
-  padding: 10px; 
-  margin: 10px 0; 
-  border: 1px solid #ccc; 
+
+  border: 1px solid #000000a3; 
+  padding: 8px;
   border-radius: 4px; 
   transition: border-color 0.3s; 
 }
+.joinclass-container input::placeholder{
+  color: #00000099;
+  font-size: 14px;
+}
 
 .joinclass-container input:focus {
-  border-color: #007bff; 
+  border-color: #020202; 
   outline: none;
 }
 
 .joinclass-container button {
-  width: 100%;
-  padding: 10px;
   background-color: #007bff; 
   color: #fff;
   border: none; 
   border-radius: 4px;
-  font-size: 16px; 
+  font-size: 14px; 
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -537,7 +579,11 @@ cursor: pointer;
   color: #28a745;
   margin-top: 10px; 
 }
+.joinclass-container .bottom{
+  display: flex;
+  flex-direction: column;
 
+}
 .joinclass-container ul {
   list-style-type: none; 
   padding-left: 0; 
@@ -545,7 +591,12 @@ cursor: pointer;
 
 .joinclass-container ul li {
   margin-bottom: 5px; 
+  color: #000000cd;
+  font-size: 13px;
+  list-style: circle;
+  margin: 0 10px;
 }
+
 
 @media (max-width: 768px) {
   .features-container {

@@ -119,3 +119,62 @@ input::placeholder{
     font-size: 15px;
     color: #ffffff;
 }
+@media (max-width: 1200px) {
+    .HeaderSearchButton input {
+        width: 150px;
+    }
+    .HeaderSearchButton input:focus {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .HeaderMiddleContainer {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+
+    .HeaderMiddle {
+        font-size: 12px;
+        padding: 5px 0;
+    }
+
+    .HeaderSearchButton input {
+        width: 120px;
+    }
+
+    .HeaderSearchButton input:focus {
+        width: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .HeaderContainer {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .HeaderBanner img {
+        width: 100px;
+    }
+
+    .HeaderMiddle {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .HeaderSearchButton input {
+        width: 100px;
+    }
+
+    .HeaderSearchButton input:focus {
+        width: 200px;
+    }
+
+    .HeaderRightest {
+        margin: 0;
+        flex-direction: column;
+    }
+}

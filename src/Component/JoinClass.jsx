@@ -51,17 +51,18 @@ export const JoinClass = () => {
 
   return (
     <div className='joinclass-container'>
-        <h3>Join class</h3>
-      <div>
+      <div className='joinclass-section'>
+      <h3>Join class</h3>
+
         <div>
-          <span>You're currently signed in as</span>
-          <div>
+          <div className='joinclass-info'>
+          <span className='text'>You're currently signed in as</span>
+
             {console.log("the user",user)}
             {user!==null&&
             <div>
-            <span>{user.name}</span>
-            <span>{user.email}</span>
-            <span>{user.role}</span>
+            <span className='name'>{user.name}</span>
+            <span className='email'>{user.email}</span>
 
 
             </div>
@@ -70,33 +71,35 @@ export const JoinClass = () => {
           </div>
         </div>
 
-        <div>
-          <span>Class Code</span>
-          <span>Ask your teacher for the class code, then enter it here.</span>
+        <div className='joinclass-info'>
+          <span className='text'>Class Code</span>
+          <span className='text'>Ask your teacher for the class code, then enter it here.</span>
           <input 
             type="text" 
             value={classCode}
             onChange={(e) => setClassCode(e.target.value)}
-            placeholder="Enter class code" 
+            placeholder="Class Code" 
           />
-        </div>
-
-        {errorMessage && <div className="error">{errorMessage}</div>}
-        {successMessage && <div className="success">{successMessage}</div>}
-
-        <div>
+            <div>
           <button onClick={handleJoinClass} disabled={load}>
             {load ? 'Joining...' : 'Join Class'}
           </button>
         </div>
+     
+        </div>
+        {errorMessage && <div className="error">{errorMessage}</div>}
+        {successMessage && <div className="success">{successMessage}</div>}
 
-        <div>
-          <span>To sign in with a class code</span>
+      
+
+        <div className='bottom'>
+          <p>To sign in with a class code</p>
           <ul>
             <li>Use a student account.</li>
             <li>Enter a class token with a length of 32 characters.</li>
           </ul>
         </div>
+       
       </div>
     </div>
   );
