@@ -12,6 +12,7 @@ import CreateClass from './Page/CreateClass';
 import { OwnClasses } from './Page/OwnClasses';
 import { ParticularClass } from './Page/ParticularClass';
 import { JoinClass } from './Component/JoinClass';
+import CreateExam from './Page/CreateExam';
 
 const Handle = () => (
  
@@ -26,6 +27,8 @@ const Handle = () => (
             <Route path="/class/get" element={<Layout><OwnClasses /></Layout>} />
             <Route path="/class/:classID" element={<Layout><ParticularClass /></Layout>} />
             <Route path="/class/join" element={<Layout><JoinClass /></Layout>} />
+            <Route path="/exam/create" element={<Layout><CreateExam /></Layout>} />
+
 
 
 

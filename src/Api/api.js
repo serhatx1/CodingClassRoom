@@ -163,9 +163,39 @@ export const JoinClassApi = async (classID) => {
     }
 
     return true
+  }catch (error) {
+    const errorMessage = error.response?.data?.error || "An error occurred while joining the class. Please try again.";
+    console.log(errorMessage);
+    return errorMessage;
+}
+};
+export const CreateExamApi = async (Data) => {
+  try {
+    if (!Data.Title || !Data.Description || !Data.ClassID || !Data.EndOfTheStart || !Data.DurationOfExam) {
+      throw new Error('All fields are required to create an exam.');
+    }
+
+    let token = localStorage.getItem('Token');
+    Data.ClassID *= 1; 
+    Data.DurationOfExam*=1
+    console.log(Data);
+
+    const response = await axios.post(`${API_URL}/exam/create`, Data, {
+      headers: {
+        Authorization: `${token}`
+      }
+    });
+    console.log(response)
+
+    if (response.status !== 200) {
+      throw new Error('Failed to create exam');
+    }
+
+    return true; 
   } catch (error) {
     console.log(error)
-    throw new Error(error.response?.data?.error || 'An error occurred while joining the class');
+    const errorMessage = error.response?.data?.error || "An error occurred while creating the exam. Please try again.";
+    return errorMessage;
   }
 };
 

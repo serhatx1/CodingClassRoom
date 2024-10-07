@@ -288,15 +288,17 @@ cursor: pointer;
 
 
 .create-class-container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 25px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  
+  margin: 0 auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
   height: 100%;
   background-color: #f9f9f9;
 
@@ -364,7 +366,6 @@ cursor: pointer;
 .class-particular-container { 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   margin:2rem auto;
   padding: 2rem;
@@ -373,7 +374,17 @@ cursor: pointer;
   max-width: 600px;
   font-family: 'Arial', sans-serif;
 }
-
+.class-particular-container>div {
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+ 
+}
+.class-particular-container p:nth-child(2) {
+  width: 100%; 
+  display: flex;
+ 
+}
 
 
 .class-particular-container .token {
@@ -381,14 +392,17 @@ cursor: pointer;
   margin-left: 5px;
   padding: 0.1rem 0.3rem;
   border-radius: 5px;
-  background-color: #14171fd9;
-
-  color: #fff; 
+  background-color: #e0e0e0d9;
+  color: #000000; 
   transition: background-color 0.3s ease, transform 0.1s ease; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .class-particular-container .token:hover {
-  background-color: #14171fd9;
+  background-color: #c8c8c8d9;
 
 }
 
@@ -469,7 +483,6 @@ cursor: pointer;
 
 
 .joinclass-container {
-
   display: flex;
   flex-direction: column;
   align-items: center;

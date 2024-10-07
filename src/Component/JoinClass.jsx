@@ -23,9 +23,8 @@ export const JoinClass = () => {
   const handleJoinClass = async () => {
     setErrorMessage('');
     setSuccessMessage('');
-
-    if (classCode.length !== 32) {
-      setErrorMessage('Class token must be exactly 36 characters.');
+    if (classCode.length==0) {
+      setErrorMessage('Enter a classcode');
       return;
     }
 
@@ -36,14 +35,13 @@ export const JoinClass = () => {
         classCode: classCode,
       };
       const res = await JoinClassApi(data.classCode);
-
       if (res !== true) {
         setErrorMessage(res);
       } else {
         setSuccessMessage("You've joined the class!");
       }
     } catch (error) {
-      setErrorMessage('An error occurred while joining the class. Please try again.'); 
+      setErrorMessage(error.response?.data?.error||'An error occurred while joining the class. Please try again.'); 
     } finally {
       setLoading(false);
     }
