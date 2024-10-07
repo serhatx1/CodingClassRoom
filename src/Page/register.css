@@ -609,6 +609,116 @@ cursor: pointer;
   list-style: circle;
   margin: 0 10px;
 }
+.create-exam-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.create-exam-container form {
+  display: flex;
+  flex-direction: column;
+  background-color: #bdc8f9b8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.create-exam-container div {
+  display: flex;
+  flex-direction: column; 
+  margin: 12px 0;
+}
+
+.create-exam-container label {
+  width: 100%;
+  max-width: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.create-exam-container input, 
+.create-exam-container select, 
+.create-exam-container textarea {
+  padding: 10px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+  width: 200px; 
+}
+
+.create-exam-container input:focus,
+.create-exam-container select:focus,
+.create-exam-container textarea:focus {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-color: #6200ea;
+}
+
+.create-exam-container textarea {
+  height: 80px;
+  width: 202px;
+  resize: none;
+}
+.create-exam-container .create-exam-button{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.create-exam-container button{
+  width: 80%;
+  background-color: #248a42;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  
+}
+@media (min-width: 600px) {
+  
+  .create-exam-container div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .create-exam-container label {
+  }
+
+  .create-exam-container input, 
+  .create-exam-container select, 
+  .create-exam-container textarea {
+    width: 65%; 
+  }
+}
+
+@media (max-width: 599px) {
+  .create-exam-container div {
+    flex-direction: column;
+  }
+
+  .create-exam-container label {
+    width: 100%;
+  }
+
+  .create-exam-container input, 
+  .create-exam-container select, 
+  .create-exam-container textarea {
+    width: 100%;
+  }
+}
 
 
 @media (max-width: 768px) {

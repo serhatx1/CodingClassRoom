@@ -8,6 +8,8 @@ const CreateExam = () => {
     const [classes, setClasses] = useState([]);
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [filled, setFilled] = useState(false);
+
     const [examData, setExamData] = useState({
         Title: '',
         Description: '',
@@ -43,13 +45,22 @@ const CreateExam = () => {
 
         fetchClasses();
     }, []);
-
+    useEffect(() => {
+        if(examData.ClassID!=null&&examData.Description!=""&&examData.DurationOfExam!=""&&examData.EndOfTheStart!=""&&examData.Title!=""){
+            setFilled(true)
+        }
+        else{
+            setFilled(false)
+        }
+    }, [examData])
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setExamData(prevData => ({
             ...prevData,
             [name]: name === "EndOfTheStart" ? value : value, 
         }));
+      
     };
 
     const handleSubmit = async (e) => {
@@ -75,7 +86,7 @@ const CreateExam = () => {
     };
 
     return (
-        <div>
+        <div className='create-exam-container'>
             <h2>Create Exam</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -133,7 +144,10 @@ const CreateExam = () => {
                         required
                     />
                 </div>
-                <button type="submit">Create Exam</button>
+                <div className='create-exam-button'>
+                <button disabled={!filled} type="submit" style={{ backgroundColor: !filled ? 'gray' : '' }}>Create Exam</button>
+
+                </div>
                 {error && <p className="error">{error}</p>}
                 {success && <p className="success">{success}</p>}
             </form>
