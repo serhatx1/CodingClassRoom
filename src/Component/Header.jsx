@@ -74,7 +74,11 @@ const Header = () => {
                     {(isAuthenticated && role=="teacher") && (
                     <div className='flex'>
                     <button className='HeaderMiddle' onClick={()=>navigate("/class/create")}>Create Class</button>
+                    <button className='HeaderMiddle' onClick={()=>navigate("/exam/create")}>Create Exam</button>
                     <button className='HeaderMiddle' onClick={()=>navigate("/class/get")}>My Classes</button>
+                    <button className='HeaderMiddle' onClick={()=>navigate("/exam/getAll")}>All Exams</button>
+
+
                     </div>
                     
                 )}
@@ -89,7 +93,6 @@ const Header = () => {
                     <div className='flex'>
                     <button className='HeaderMiddle' onClick={()=>navigate("/class/join")}>Join class</button>
                     <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
-
                     </div>
                 )}
                

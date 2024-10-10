@@ -198,7 +198,27 @@ export const CreateExamApi = async (Data) => {
     return errorMessage;
   }
 };
-
+export const FetchAllExamsApi = async () => {
+  try {
+    const token = localStorage.getItem('Token');
+    
+    const response = await axios.get(`${API_URL}/exam/getAll`, {
+      headers: {
+        Authorization: `${token}`
+      }
+    });
+    
+    if (response.status !== 200) {
+      throw new Error('Failed to fetch exams');
+    }
+    
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    const errorMessage = error.response?.data?.error || "An error occurred while fetching exams. Please try again.";
+    return { error: errorMessage };
+  }
+};
 // export const CheckAuth=async()=>{
 //   try {
 //     const response=await axios.get(`${API_URL}/checkauth`)
