@@ -82,7 +82,6 @@
 .HeaderSearchButton:hover {
     border-color: #001b39; 
     width:100%;
-    padding-left: 15px;
 
 }
 
@@ -110,7 +109,33 @@
 input::placeholder{
     color: #fff;
 }
+.black *{
+    cursor: auto;
+}
+.black{
+    width: 97%!important;
+    border: 1px solid #d19c4d;
+    border-radius:10px;
+    height: 50px;
+  }
+.black input{
+    width: 100%!important;
+}
+  .black:hover{
+    width: 100%;
+    border: 1px solid #d19c4d;
 
+
+  }
+  .black input::placeholder{
+    color: #001b39;
+  }
+  .black *{
+    color: black!important;
+  }
+  .black input:focus {
+    width: auto; 
+}
 .ShortcutText {
     position: absolute;
     right: 10px;

@@ -3,23 +3,21 @@ import { IoIosSearch } from 'react-icons/io';
 import "./Header.css"
 
 
-export const Search = () => {
+export const Search = ({ onSearchQueryChange,theme }) => {
   const [query, setQuery] = useState('');
   const inputRef = useRef(null); 
 
   const handleChange = (event) => {
-    setQuery(event.target.value);
+    const newQuery = event.target.value;
+    setQuery(newQuery);
+    onSearchQueryChange(newQuery); 
   };
 
   const performSearch = () => {
     if (query.trim()) {
-      console.log('Arama sorgusu:', query);
-      // fetch(`api/search?query=${query}`)
-      //   .then(response => response.json())
-      //   .then(data => console.log(data))
-      //   .catch(error => console.error('Error:', error));
+      console.log('Search query:', query);
     } else {
-      console.log('Lütfen bir arama terimi girin.');
+      console.log('Please enter a search term.');
     }
   };
 
@@ -27,7 +25,7 @@ export const Search = () => {
     if (query.trim()) {
       performSearch();
     }
-  }, [query]); 
+  }, [query]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -47,7 +45,7 @@ export const Search = () => {
   }, []);
 
   return (
-    <div className='HeaderSearchButton'>
+    <div className={`${theme=="black"?"black":""} HeaderSearchButton`}>
       <IoIosSearch className='HeaderSearchIcon' />
       <input
         type="text"
@@ -56,7 +54,7 @@ export const Search = () => {
         onChange={handleChange} 
         ref={inputRef}
       />
-      <div className="ShortcutText">Ctrl + K</div>
+      <div className={`ShortcutText`}>Ctrl + K</div>
     </div>
   );
 }

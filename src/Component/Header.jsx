@@ -8,7 +8,7 @@ import { AuthContext } from '../Context/Context';
 const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { isAuthenticated, setIsAuthenticated,role } = useContext(AuthContext);
+    const { isAuthenticated, setIsAuthenticated, role } = useContext(AuthContext);
 
     const getActivePage = () => {
         switch (location.pathname) {
@@ -45,6 +45,10 @@ const Header = () => {
         navigate('/login');
     };
 
+    const handleSearchQueryChange = (query) => {
+        console.log('Search query changed:', query);
+    };
+
     const activePage = getActivePage();
 
     return (
@@ -68,38 +72,28 @@ const Header = () => {
                             </div>
                         </>
                     )}
-                   
-                    
                     <div className='HeaderMiddle HeaderMiddle2 Logout'>
-                    {(isAuthenticated && role=="teacher") && (
-                    <div className='flex'>
-                    <button className='HeaderMiddle' onClick={()=>navigate("/class/create")}>Create Class</button>
-                    <button className='HeaderMiddle' onClick={()=>navigate("/exam/create")}>Create Exam</button>
-                    <button className='HeaderMiddle' onClick={()=>navigate("/class/get")}>My Classes</button>
-                    <button className='HeaderMiddle' onClick={()=>navigate("/exam/getAll")}>All Exams</button>
-
-
+                        {isAuthenticated && role === "teacher" && (
+                            <div className='flex'>
+                                <button className='HeaderMiddle' onClick={() => navigate("/class/create")}>Create Class</button>
+                                <button className='HeaderMiddle' onClick={() => navigate("/exam/create")}>Create Exam</button>
+                                <button className='HeaderMiddle' onClick={() => navigate("/class/get")}>My Classes</button>
+                                <button className='HeaderMiddle' onClick={() => navigate("/exam/getAll")}>All Exams</button>
+                            </div>
+                        )}
                     </div>
-                    
-                )}
-           
-                </div>
-                    
-                  
                 </div>
             </div>
             <div className='HeaderMiddle HeaderMiddle2 Logout flex'>
-                    {isAuthenticated && (
+                {isAuthenticated && (
                     <div className='flex'>
-                    <button className='HeaderMiddle' onClick={()=>navigate("/class/join")}>Join class</button>
-                    <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
+                        <button className='HeaderMiddle' onClick={() => navigate("/class/join")}>Join Class</button>
+                        <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
                     </div>
                 )}
-               
-                    </div>
+            </div>
             <div className='HeaderRightest'>
-                <Search />
-               
+                <Search onSearchQueryChange={handleSearchQueryChange}/>
             </div>
         </div>
     );
