@@ -219,6 +219,20 @@ export const FetchAllExamsApi = async () => {
     return { error: errorMessage };
   }
 };
+export const fetchProblems = async () => {
+  try {
+    const token = localStorage.getItem('Token');
+    
+    const response = await axios.get(`${API_URL}/problems/get`, {
+      headers: {
+        Authorization: `${token}`
+      }
+    });    return response.data;
+  } catch (error) {
+    console.error('Error fetching problems:', error);
+    throw error; 
+  }
+};
 // export const CheckAuth=async()=>{
 //   try {
 //     const response=await axios.get(`${API_URL}/checkauth`)

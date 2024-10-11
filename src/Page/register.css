@@ -1,7 +1,7 @@
 .features-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+  padding: 20px;
     background-color: #14171fd9;
     border-radius: 100% 0% 100%  / 0% 82% 14% 100% ;
   
@@ -720,7 +720,7 @@ h3 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #6b4e37;
+  color: #414e6e;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
 }
 
@@ -745,7 +745,7 @@ h3 {
 
 .all-exams-container .exam-card {
   background-color: #fff;
-  border: 1px solid #d19c4d;
+  border: 1px solid #414e6e;
   border-radius: 8px;
   padding: 20px;
   margin: 15px 0;
@@ -760,7 +760,7 @@ h3 {
   font-size: 1.8rem;
   font-weight: bold;
   margin: 0 0 10px;
-  color: #8b4513;
+  color: #414e6e;
 }
 
 .all-exams-container .exam-description {
@@ -783,7 +783,7 @@ h3 {
 
 .all-exams-container .btn {
   font-size: 1rem;
-  background-color: #d19c4d;
+  background-color:#414e6e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -809,6 +809,115 @@ h3 {
 
 .all-exams-container .delete-btn:hover {
   background-color: #a52a2a;
+}
+
+
+
+.problems-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px!important;
+
+  text-align: center;
+}
+
+.problems-container *{
+  font-size: 14px!important;
+  text-align: center;
+}
+.problems-container h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #222222;
+  text-align: center;
+  border-bottom: 1px solid #cccccc;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4; 
+  padding: 10px 0;
+}
+
+.table-header h3 {
+  flex: 1;
+  text-align: center; 
+  color: #222222;
+}
+
+.problem-item {
+  border-bottom: 1px solid #cccccc;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.problem-item h3,
+.problem-item p,
+.problem-item .desc
+.problem-item button
+ {
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  
+
+}
+
+
+.problem-item:last-child {
+  border-bottom: none;
+}
+
+.problem-item h3 {
+  font-size: 20px;
+  color: #111111;
+  margin: 0;
+}
+
+.problem-item p {
+  color: #444444;
+  margin: 8px 0;
+}
+
+.loader {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 50px;
+  color: #222222;
+}
+
+.flat-button {
+  height: 40px;
+  text-align: center;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.flat-button:hover {
+  background-color: #333333;
+}
+
+.flat-button:focus {
+  outline: none;
+}
+
+.flat-button:active {
+  background-color: #555555;
 }
 
 

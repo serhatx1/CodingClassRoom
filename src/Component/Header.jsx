@@ -53,6 +53,7 @@ const Header = () => {
 
     return (
         <div className='HeaderContainer'>
+            <div className="HeaderSection">
             <div className='HeaderBanner'>
                 <img onClick={() => navigate("/")} src={photo} alt="logo" />
                 <div className='HeaderMiddleContainer'>
@@ -94,6 +95,7 @@ const Header = () => {
             </div>
             <div className='HeaderRightest'>
                 <Search onSearchQueryChange={handleSearchQueryChange}/>
+            </div>
             </div>
         </div>
     );
