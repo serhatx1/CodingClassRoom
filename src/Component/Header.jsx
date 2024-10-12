@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import photo from "../img/logo.png";
 import "./Header.css";
@@ -12,6 +12,18 @@ const Header = () => {
     const location = useLocation();
     const { isAuthenticated, setIsAuthenticated, role,user} = useContext(AuthContext);
     const [userMenu,setUserMenu]=useState(false)
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (userMenu && !event.target.closest('.UserMenuContainer')) {
+                setUserMenu(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [userMenu]);
     const getActivePage = () => {
         switch (location.pathname) {
             case '/login':
@@ -97,13 +109,17 @@ const Header = () => {
                 </div>
             </div>
             <div className='HeaderMiddle HeaderMiddle2 Logout flex'>
+            <div className='HeaderRightest'>
+                <Search onSearchQueryChange={handleSearchQueryChange}/>
+                </div>
                 {isAuthenticated && (
                     <div className='flex'>
                      
                         <div className='UserMenuContainer'>
                             <div className='UserMenu' onClick={() => setUserMenu(!userMenu)}>
-                    <FaRegUser size={25}  />
                         <h4>{user.name}</h4>
+                        <FaRegUser size={25}  />
+
                     </div>
                     {userMenu && (
                         <div className='LogOutContainer'>
@@ -119,9 +135,7 @@ const Header = () => {
                          </div>
                     </div>
                 )}
-                 <div className='HeaderRightest'>
-                <Search onSearchQueryChange={handleSearchQueryChange}/>
-            </div>
+                 
             </div>
            
             </div>
