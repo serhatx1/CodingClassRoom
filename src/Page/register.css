@@ -417,8 +417,8 @@ cursor: pointer;
   margin: 20px auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #d19c4d;
+  box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.845);
+
 
 }
 .allClasses-container .header-bar tr{
@@ -466,7 +466,7 @@ cursor: pointer;
 .allClasses-container .class-item a {
   text-decoration: none;
   font-weight: bold;
-  color: #d19c4d;
+  color: rgba(0, 0, 0, 0.845);
 
 }
 
@@ -508,10 +508,10 @@ cursor: pointer;
 .joinclass-container ul, 
 .joinclass-container > span,
 .joinclass-info,
-.bottom,
-input,
-button,
-h3 {
+.joinclass-container .bottom,
+.joinclass-container input,
+.joinclass-container button,
+.joinclass-container h3 {
   margin: 6px;
   padding: 6px;
 }
@@ -630,10 +630,9 @@ h3 {
   flex-direction: column;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.845);
   width: 100%;
   max-width: 500px;
-  border: 1px solid #d19c4d;
 
   
 }
@@ -702,17 +701,18 @@ h3 {
   justify-content: center;
   flex-direction: column;
   font-family: 'Courier New', Courier, monospace; 
-  color: #5b3a29; 
+  color: rgba(0, 0, 0, 0.845); 
+  
 }
 .all-exams-section {
   font-family: 'Courier New', Courier, monospace;
   width: 800px;
-  color: #5b3a29;
+  color: rgba(0, 0, 0, 0.845);
   margin: 20px auto;
   padding: 30px;
   background-color: #ffffff; 
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.845);
 }
 
 .all-exams-container .title {
@@ -720,7 +720,7 @@ h3 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #414e6e;
+  color: rgba(0, 0, 0, 0.845);
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
 }
 
@@ -745,7 +745,7 @@ h3 {
 
 .all-exams-container .exam-card {
   background-color: #fff;
-  border: 1px solid #414e6e;
+  border: 1px solid rgba(0, 0, 0, 0.845);
   border-radius: 8px;
   padding: 20px;
   margin: 15px 0;
@@ -760,7 +760,7 @@ h3 {
   font-size: 1.8rem;
   font-weight: bold;
   margin: 0 0 10px;
-  color: #414e6e;
+  color: rgba(0, 0, 0, 0.845);
 }
 
 .all-exams-container .exam-description {
@@ -773,8 +773,10 @@ h3 {
 .all-exams-container .exam-duration,
 .all-exams-container .exam-start-date {
   font-size: 0.9rem;
-  color: #6b4e37;
+  color: #000000;
   margin-bottom: 5px;
+  font-weight: 450;
+
 }
 
 .all-exams-container .exam-actions {
@@ -783,7 +785,7 @@ h3 {
 
 .all-exams-container .btn {
   font-size: 1rem;
-  background-color:#414e6e;
+  background-color:rgba(0, 0, 0, 0.845);
   color: white;
   border: none;
   border-radius: 5px;
@@ -795,7 +797,6 @@ h3 {
 }
 
 .all-exams-container .btn:hover {
-  background-color: #b8860b;
   transform: translateY(-1px);
 }
 
@@ -807,9 +808,7 @@ h3 {
   background-color: #c0392b;
 }
 
-.all-exams-container .delete-btn:hover {
-  background-color: #a52a2a;
-}
+
 
 
 

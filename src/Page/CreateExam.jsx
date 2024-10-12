@@ -88,7 +88,9 @@ const CreateExam = () => {
     return (
         <div className='create-exam-container'>
             <h2>Create Exam</h2>
+
             <form onSubmit={handleSubmit}>
+
                 <div>
                     <label>Title</label>
                     <input

@@ -117,13 +117,13 @@ const Register = () => {
         </div>
         }
       </div>
-      <div className="university">
+      {/* <div className="university">
         <img src={a} alt="" />
         <img src={b} alt="" />
         <img src={c} alt="" />
         <img src={d} alt="" />
         <img src={e} alt="" />
-      </div>
+      </div> */}
     </div>
   );
 };

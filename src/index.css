@@ -5,8 +5,13 @@
  
   
 }
+#root,html *{
+  max-width: 100%;
+}
 
 body {
+  box-sizing: border-box;
+
   margin: 0;
   padding: 0;
   width: 100%;
@@ -15,7 +20,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
 }
+
 main{
   min-height: 100vh;
 }

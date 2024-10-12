@@ -5,23 +5,82 @@
 .HeaderContainer {
     width: 100%;
     display: flex;
-    padding: 8px;
+    position: relative;
+    justify-content: center;
+    max-width: 100vw; 
+    box-sizing: border-box;
     color:#fff;
     background-color: #14171F;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .HeaderSection{
+
+    max-width: 1920px;
+padding: 8px;
     display: flex;
     width: 100%;
     margin: 0 auto;
     justify-content: space-between;
-    max-width: 1280px;
 }
+.UserMenuContainer{
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
 
+
+}
+.UserMenu{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+
+
+}
+.UserMenu h4{
+    padding-left: 5px;
+    font-weight: 400;
+}
+.LogOut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.LogOutContainer {
+    background-color: #14171F;
+    height: 50px;
+    width: 120px;
+    position: absolute;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    bottom:-58px;
+    z-index: 0;
+}
+.LogOutSection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer!important;
+}
+.LogOutButton{
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+    margin: 0;
+    font-size: 14px;
+    cursor: pointer;
+}
 .HeaderBanner {
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: center;
     cursor: pointer;
     padding: 5px;
 }
@@ -38,6 +97,8 @@
 .HeaderMiddleContainer{
     display: flex;
     height: 100%;
+    flex-wrap: wrap;
+
     width: 100%;
 }
 .HeaderMiddle {
@@ -110,9 +171,7 @@
     font-size: 15px;
 }
 
-.HeaderSearchButton input:focus {
-    width: 350px; 
-}
+
 input::placeholder{
     color: #fff;
 }
@@ -155,9 +214,7 @@ input::placeholder{
     .HeaderSearchButton input {
         width: 150px;
     }
-    .HeaderSearchButton input:focus {
-        width: 300px;
-    }
+  
 }
 
 @media (max-width: 768px) {
@@ -171,17 +228,29 @@ input::placeholder{
         font-size: 12px;
         padding: 5px 0;
     }
-
+    .HeaderRightest{
+        width: 100%;
+    }
     .HeaderSearchButton input {
-        width: 120px;
+        width: 100%;
+        font-size: 12px;
     }
+    .HeaderSearchButton .ShortcutText{
+        font-size: 12px;
+    }
+    .UserMenu svg{
+        width: 20px;
+        height: 20px;
+    }
+    
 
-    .HeaderSearchButton input:focus {
-        width: 250px;
-    }
+
 }
 
 @media (max-width: 576px) {
+    .HeaderSection{
+        flex-wrap: wrap;
+    }
     .HeaderContainer {
         flex-direction: column;
         align-items: center;
@@ -193,20 +262,20 @@ input::placeholder{
     }
 
     .HeaderMiddle {
-        font-size: 10px;
+        white-space:wrap;
+        font-size: 7px;
         padding: 5px;
     }
 
-    .HeaderSearchButton input {
-        width: 100px;
-    }
 
-    .HeaderSearchButton input:focus {
-        width: 200px;
-    }
+   
 
     .HeaderRightest {
         margin: 0;
         flex-direction: column;
     }
+    .UserMenu svg{
+        width: 20pxx;
+    }
+
 }

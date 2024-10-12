@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import photo from "../img/logo.png";
 import "./Header.css";
 import { Search } from './Search';
 import { AuthContext } from '../Context/Context';
+import { FaRegUser } from "react-icons/fa";
+import { MdLogout } from "react-icons/md";
 
 const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { isAuthenticated, setIsAuthenticated, role } = useContext(AuthContext);
-
+    const { isAuthenticated, setIsAuthenticated, role,user} = useContext(AuthContext);
+    const [userMenu,setUserMenu]=useState(false)
     const getActivePage = () => {
         switch (location.pathname) {
             case '/login':
@@ -82,20 +84,46 @@ const Header = () => {
                                 <button className='HeaderMiddle' onClick={() => navigate("/exam/getAll")}>All Exams</button>
                             </div>
                         )}
+                            {isAuthenticated && role === "student" && (
+                            <div className='flex'>
+                            <div className="HeadMiddle">
+                        <button className='HeaderMiddle' onClick={() => navigate("/class/join")}>Join Class</button>
+
+                        </div>
+                            </div>
+                        )}
+                         
                     </div>
                 </div>
             </div>
             <div className='HeaderMiddle HeaderMiddle2 Logout flex'>
                 {isAuthenticated && (
                     <div className='flex'>
-                        <button className='HeaderMiddle' onClick={() => navigate("/class/join")}>Join Class</button>
-                        <button className='HeaderMiddle' onClick={handleLogout}>Logout</button>
+                     
+                        <div className='UserMenuContainer'>
+                            <div className='UserMenu' onClick={() => setUserMenu(!userMenu)}>
+                    <FaRegUser size={25}  />
+                        <h4>{user.name}</h4>
+                    </div>
+                    {userMenu && (
+                        <div className='LogOutContainer'>
+                        <div className="LogOutSection" onClick={handleLogout}>
+                        <MdLogout className='UserSvg' size={30} />
+                        <button className=" LogOutButton" >
+                            Logout
+                        </button>
+                        </div>
+                       
+                        </div>
+                    )}
+                         </div>
                     </div>
                 )}
-            </div>
-            <div className='HeaderRightest'>
+                 <div className='HeaderRightest'>
                 <Search onSearchQueryChange={handleSearchQueryChange}/>
             </div>
+            </div>
+           
             </div>
         </div>
     );
