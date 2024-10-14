@@ -81,8 +81,11 @@ const AllExams = () => {
                 <p className='exam-duration'>Duration: <strong>{exam.DurationOfExam} minutes</strong></p>
                 <p className='exam-start-date'>Start Date: <strong>{new Date(exam.EndOfTheStart).toLocaleString()}</strong></p>
                 <div className='exam-actions'>
-                  <button className='btn edit-btn'>Edit</button>
-                  <button className='btn delete-btn'>Delete</button>
+                <button onClick={() => navigate(`/problems/${exam.ID}`)} className='btn edit-btn'>
+                Edit
+              </button>
+
+                <button className='btn delete-btn'>Delete</button>
                 </div>
               </li>
             ))}

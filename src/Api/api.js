@@ -233,6 +233,39 @@ export const fetchProblems = async () => {
     throw error; 
   }
 };
+
+export const getProblems = async (examID) => {
+  const token = localStorage.getItem('Token');
+  try {
+    const response = await axios.get(`${API_URL}/problems/get?examID=${examID}`, {
+      headers: {
+        Authorization: `${token}`
+      }
+    });    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+export const editProblemInExam = async (examID, problemID, action) => {
+  const token = localStorage.getItem('Token');
+  try {
+    const response = await axios.post(`${API_URL}/problems/edit`, {
+      examID,
+      problemID,
+      action,    
+    }, {
+      headers: {
+        Authorization: `${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
 // export const CheckAuth=async()=>{
 //   try {
 //     const response=await axios.get(`${API_URL}/checkauth`)

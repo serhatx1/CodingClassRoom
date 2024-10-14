@@ -15,6 +15,7 @@ import { JoinClass } from './Component/JoinClass';
 import CreateExam from './Page/CreateExam';
 import AllExams from './Page/AllExams';
 import ProblemsList from './Page/ProblemList';
+import Problems from './Page/Problems';
 
 const Handle = () => (
  
@@ -32,6 +33,8 @@ const Handle = () => (
             <Route path="/exam/create" element={<Layout><CreateExam /></Layout>} />
             <Route path="/exam/getAll" element={<Layout><AllExams/></Layout>} />
             <Route path="/problem/get" element={<Layout><ProblemsList/></Layout>} />
+            <Route path="/problems/:examID" element={<Layout><Problems/></Layout>} />
+
 
 
 

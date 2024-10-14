@@ -821,13 +821,13 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   font-size: 15px!important;
-
-  text-align: center;
 }
 
 .problems-container *{
   font-size: 14px!important;
-  text-align: center;
+}
+.problems-container input{
+  text-align: left
 }
 .problems-container h1 {
   font-size: 28px;
@@ -854,25 +854,33 @@ cursor: pointer;
 
 .problem-item {
   border-bottom: 1px solid #cccccc;
-  padding: 16px 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px 0;
+  
 }
 
 .problem-item h3,
 .problem-item p,
 .problem-item .desc
-.problem-item button
  {
-  width: 120px;
+  width: 225px;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-height: 200px;
+  padding: 7px;
   text-align: center;
-  
 
 }
+.problem-item .flat-button{
+  width: 225px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 200px;
+  padding: 7px;
+  text-align: center;
 
-
+}
 .problem-item:last-child {
   border-bottom: none;
 }
