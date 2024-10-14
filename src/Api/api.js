@@ -264,7 +264,20 @@ export const editProblemInExam = async (examID, problemID, action) => {
   }
 };
 
-
+export const MyExamsApi = async () => {
+  const token = localStorage.getItem('Token');
+  try {
+    const response = await axios.get(`${API_URL}/exam/get`, {
+      headers: {
+        Authorization: `${token}`
+      }
+    });
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 // export const CheckAuth=async()=>{
 //   try {

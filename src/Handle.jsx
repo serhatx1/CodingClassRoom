@@ -1,4 +1,3 @@
-// Handle.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import QuestionLoader from './Component/Question';
@@ -16,6 +15,7 @@ import CreateExam from './Page/CreateExam';
 import AllExams from './Page/AllExams';
 import ProblemsList from './Page/ProblemList';
 import Problems from './Page/Problems';
+import MyExams from "./Page/MyExams"
 
 const Handle = () => (
  
@@ -34,6 +34,8 @@ const Handle = () => (
             <Route path="/exam/getAll" element={<Layout><AllExams/></Layout>} />
             <Route path="/problem/get" element={<Layout><ProblemsList/></Layout>} />
             <Route path="/problems/:examID" element={<Layout><Problems/></Layout>} />
+            <Route path="/exam/own" element={<Layout><MyExams/></Layout>} />
+
 
 
 

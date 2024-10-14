@@ -98,10 +98,10 @@ const Header = () => {
                         )}
                             {isAuthenticated && role === "student" && (
                             <div className='flex'>
-                            <div className="HeadMiddle">
                         <button className='HeaderMiddle' onClick={() => navigate("/class/join")}>Join Class</button>
+                        <button className='HeaderMiddle' onClick={() => navigate("/exam/own")}>Exams</button>
 
-                        </div>
+
                             </div>
                         )}
                          
