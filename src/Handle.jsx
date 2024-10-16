@@ -46,7 +46,7 @@ const Handle = () => (
 
 
             <Route
-                path="/:questionType"
+                path="/:idOfQ"
                 element={
                     <Layout>
                             <QuestionLoader />

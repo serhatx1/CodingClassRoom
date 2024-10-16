@@ -1,34 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Editor } from '@monaco-editor/react';
-import questions from '../testCasesData.json';
-import { submitResults } from '../Api/api';
+import { GetAllProblems, submitResults } from '../Api/api';
 import useCodeRunner from '../Hook/runner';
 import './Question.css'; 
 import AuthCheckComponent from './AuthCheck';
 
 const QuestionLoader = () => {
-  const { questionType } = useParams();
+  const { idOfQ } = useParams();
   const [code, setCode] = useState('');
   const [testCases, setTestCases] = useState([]);
   const [error, setError] = useState('');
+  const [questionType,setQuestionType]=useState(null)
+  const [questions, setQuestions] = useState([]);
   const [selectedTest, setSelectedTest] = useState(0); 
+  const [question,setQuestion] = useState(null)
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem('jwtToken');
-
   const { output, error: runError, testResults, runCode } = useCodeRunner(questionType, code, testCases);
 
   useEffect(() => {
-    if (questionType) {
-      loadQuestion(questionType);
-    }
-  }, [questionType]);
+    const fetchProblems = async () => {
+      try {
+        const response = await GetAllProblems();
+        setQuestions(response);
+      } catch (err) {
+        console.error('Failed to fetch problems:', err);
+        setError('Could not fetch questions. Please try again later.');
+      }
+    };
+    fetchProblems();
+  }, []);
 
-  const loadQuestion = (type) => {
-    const question = questions.find(q => q.type === type);
+  useEffect(() => {
+    if (idOfQ && questions.length > 0) {
+      loadQuestion(idOfQ*1);
+    }
+  }, [idOfQ, questions]);
+
+  const loadQuestion = (idOfQ) => {
+    const question = questions.find(q => q.ID===idOfQ);
     if (question) {
       setCode(question.startingCode);
-      setTestCases(question.testCases);
+      setTestCases(question.TestCases); 
+      setQuestion(question)
+      var arr = question.startingCode.split(" ")
+      var result =""
+      for(let i=0;i<arr[1].length;i++){
+        if (arr[1][i]!="("){
+            result+=arr[1][i]
+        }else{
+          break
+        }
+      }
+      setQuestionType(result)
     } else {
       setError('Question not found');
       navigate('/');
@@ -40,7 +65,13 @@ const QuestionLoader = () => {
   };
 
   const handleSubmitResults = async () => {
-    await submitResults(questionType, testResults, jwtToken);
+    try {
+      await submitResults(idOfQ, testResults, jwtToken);
+      alert('Results submitted successfully!');
+    } catch (err) {
+      console.error('Failed to submit results:', err);
+      setError('Could not submit results. Please try again later.');
+    }
   };
 
   const handleTestClick = (index) => {
@@ -51,14 +82,15 @@ const QuestionLoader = () => {
     if (testCases.length === 0) return {};
     return testResults[`test${selectedTest + 1}`];
   };
-  
+
   return (
     <div className='QuestionLoaderContainer'>
       <AuthCheckComponent/>
+      {error && <p className='error'>{error}</p>}
       <div className='DescriptionContainer'>
-        <h2> {questionType}</h2>
+        <h2>{idOfQ}</h2>
         <div className='questionDesc'>
-        <p>{questions.find(q => q.type === questionType)?.description}</p>
+          <p>{question!=null&&question.description}</p>
         </div>
       </div>
       <div className='EditorContainer'>

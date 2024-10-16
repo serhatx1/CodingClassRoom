@@ -278,7 +278,19 @@ export const MyExamsApi = async () => {
     throw error;
   }
 };
-
+export const GetAllProblems = async () => {
+  const token = localStorage.getItem('Token');
+  try {
+    const response = await axios.get(`${API_URL}/problems/getAll`, {
+      headers: {
+        Authorization: `${token}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 // export const CheckAuth=async()=>{
 //   try {
 //     const response=await axios.get(`${API_URL}/checkauth`)
